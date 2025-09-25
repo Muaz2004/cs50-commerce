@@ -1,0 +1,24 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+ <h1>{{query.title}}</h1><br>
+ <pre>{{query.description}}</pre>
+ <p>{{query.starting_bid}}</p>
+ {% if query.image_url %}
+  <img src="{{ query.image_url }}" alt="image ">
+
+  {% endif %} <br> <br>
+
+  <a href="{% url 'add' query.id %}">add to watchlist</a><br><br>
+
+  <a href="{% url 'remove' query.id %}">remove from watchlist</a>
+
+
+
+
+
+
+{% endblock %}

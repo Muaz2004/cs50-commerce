@@ -1,0 +1,19 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+<ul>
+    {% for listings in query%}
+    <li><a href="{% url 'display' listings.id %}">{{listings.id}} title:{{listings.title}} description:{{listings.description}} starting_bid:{{listings.starting_bid}}.... {% if listings.image_url %}<img src="{{ listings.image_url }}" alt="image">{% endif %} </a>
+    
+    </li>
+    {% endfor %}
+
+</ul><br><br><br>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% block title %}{% endblock %}
+
+{% block body %}
+
+<form action="{% url 'edit' query.id %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="title" placeholder="title" value="{{query.title}}" required>
+    <textarea name="description" cols="50" rows="10" placeholder="description" required>{{query.description}}</textarea>
+    <input type="number" name="starting_bid" placeholder="startin_bid" value="{{query.startin_bid}}" required>
+    <input type="url" name="image_url" placeholder="image_url" value="{{query.image_url}}">
+    <input type="submit" value="submit">
+</form>
+<a href="{% url 'logout' %}">LOGOUT</a>
+
+
+{% endblock %}

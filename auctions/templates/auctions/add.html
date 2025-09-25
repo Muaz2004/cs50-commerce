@@ -1,0 +1,22 @@
+
+{% extends "auctions/layout.html" %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+{% if message %}{{message}}{% endif %}
+<form action="{% url 'add' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="title" placeholder="title" required>
+    <textarea name="description" cols="50" rows="10" placeholder="description" required></textarea>
+    <input type="number" name="starting_bid" placeholder="startin_bid" required>
+    <input type="url" name="image_url" placeholder="image_url">
+    <input type="submit" value="submit">
+</form>
+<a href="{% url 'logout' %}">LOGOUT</a>
+
+
+
+
+{% endblock %}
